@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weihnachtsfeier</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="scripts/config.js"></script>
+  <script src="scripts/main.js" defer></script>
+</head>
+<body class="page-home">
+  <canvas id="snow" aria-hidden="true"></canvas>
+
+  <header class="navbar">
+    <a class="brand" href="index.html">🎄 Weihnachtsfeier</a>
+    <nav>
+      <ul>
+        <li><a class="nav-btn nav-home active" href="index.html"><span class="label">Home</span><i class="sparkles" aria-hidden="true"></i></a></li>
+        <li><a class="nav-btn nav-flip" href="verlinkung/restaurants.html"><span class="face front">Restaurants</span><span class="face back" aria-hidden="true">🤵🍽️</span></a></li>
+        <li><a class="nav-btn nav-events" href="verlinkung/veranstaltungen.html"><span class="label">Veranstaltungen</span><i class="fireworks" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></i></a></li>
+        <li><a class="nav-btn nav-flip" href="verlinkung/vorschlaege.html"><span class="face front">Vorschläge</span><span class="face back" aria-hidden="true">📝</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="center">
+    <form id="teilnahme-form" class="card" autocomplete="on">
+      <h1>Bist du dabei?</h1>
+      <input type="text" name="website2" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="sub">Trag dich ein und sag uns, wo und wann du Zeit hast.</p>
+
+      <input type="text" name="vorname" placeholder="Vorname" required>
+      <input type="text" name="nachname" placeholder="Nachname" required>
+      <input type="text" name="tag" placeholder="Wann soll es stattfinden?" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
+
+      <select name="auswahl" aria-label="Veranstaltung oder Restaurant">
+        <option value="">Veranstaltung / Restaurant wählen …</option>
+        <optgroup label="Restaurants">
+          <option>Restaurant 1</option>
+          <option>Restaurant 2</option>
+          <option>Restaurant 3</option>
+        </optgroup>
+        <optgroup label="Veranstaltungen">
+          <option>Veranstaltung 1</option>
+          <option>Veranstaltung 2</option>
+          <option>Veranstaltung 3</option>
+        </optgroup>
+      </select>
+
+      <textarea name="notiz" rows="3" placeholder="Gibt es noch was, das wir wissen müssen?"></textarea>
+
+      <div class="btn-row">
+        <button type="submit" name="status" value="Teilnahme" class="action yes">
+          <span class="btn-label">Teilnehmen</span>
+          <span class="stage" aria-hidden="true">
+            <span class="runner">
+              <svg viewBox="0 0 40 40" class="stick">
+                <circle cx="20" cy="8" r="4"/>
+                <line x1="20" y1="12" x2="20" y2="25"/>
+                <g class="arm-l"><line x1="20" y1="16" x2="13" y2="22"/><rect class="pad" x="8" y="19" width="6" height="8" rx="1"/></g>
+                <g class="arm-r"><line x1="20" y1="16" x2="28" y2="21"/></g>
+                <g class="leg-l"><line x1="20" y1="25" x2="15" y2="37"/></g>
+                <g class="leg-r"><line x1="20" y1="25" x2="25" y2="37"/></g>
+              </svg>
+            </span>
+          </span>
+        </button>
+        <button type="submit" name="status" value="Absage" class="action no">
+          <span class="btn-label">Absagen</span>
+          <span class="stage" aria-hidden="true">
+            <span class="hole"></span>
+            <span class="runner">
+              <svg viewBox="0 0 40 40" class="stick sad">
+                <circle cx="20" cy="9" r="4"/>
+                <line x1="20" y1="13" x2="20" y2="25"/>
+                <g class="arm-l"><line x1="20" y1="16" x2="15" y2="24"/></g>
+                <g class="arm-r"><line x1="20" y1="16" x2="25" y2="24"/></g>
+                <g class="leg-l"><line x1="20" y1="25" x2="15" y2="37"/></g>
+                <g class="leg-r"><line x1="20" y1="25" x2="25" y2="37"/></g>
+              </svg>
+            </span>
+          </span>
+        </button>
+      </div>
+      <p id="form-msg" class="msg" role="status"></p>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Für weitere Fragen schreibt mir gerne bei <a href="#" id="teams-link">Teams</a> oder per <a href="mailto:deine@email.de">E-Mail</a>.</span>
+    </div>
+  </footer>
+</body>
+</html>

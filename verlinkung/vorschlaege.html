@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vorschläge – Weihnachtsfeier</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../scripts/config.js"></script>
+  <script src="../scripts/main.js" defer></script>
+</head>
+<body>
+  <canvas id="snow" aria-hidden="true"></canvas>
+
+  <header class="navbar">
+    <a class="brand" href="../index.html">🎄 Weihnachtsfeier</a>
+    <nav>
+      <ul>
+        <li><a class="nav-btn nav-home" href="../index.html"><span class="label">Home</span><i class="sparkles" aria-hidden="true"></i></a></li>
+        <li><a class="nav-btn nav-flip" href="restaurants.html"><span class="face front">Restaurants</span><span class="face back" aria-hidden="true">🤵🍽️</span></a></li>
+        <li><a class="nav-btn nav-events" href="veranstaltungen.html"><span class="label">Veranstaltungen</span><i class="fireworks" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></i></a></li>
+        <li><a class="nav-btn nav-flip active" href="vorschlaege.html"><span class="face front">Vorschläge</span><span class="face back" aria-hidden="true">📝</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="center">
+    <form id="vorschlag-form" class="card wide" autocomplete="on">
+      <h1>Mach einen Vorschlag</h1>
+      <input type="text" name="website2" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="sub">Du kennst ein tolles Restaurant oder Event? Erzähl uns davon.</p>
+
+      <div class="row2">
+        <input type="text" name="vorname" placeholder="Vorname" required>
+        <input type="text" name="nachname" placeholder="Nachname" required>
+      </div>
+      <input type="url" name="link" placeholder="Link zur Website (https://…)">
+
+      <h2>Adresse</h2>
+      <input type="text" name="adressname" placeholder="Name (Restaurant / Location)" required>
+      <div class="row2">
+        <input type="text" name="strasse" placeholder="Straße">
+        <input type="text" name="stadt" placeholder="Stadt">
+      </div>
+
+      <textarea name="vorteile" rows="3" placeholder="Vorteile – warum passt es?"></textarea>
+      <input type="text" name="event" placeholder="Event (z. B. Name der Veranstaltung)">
+
+      <button type="submit" class="submit">Absenden</button>
+      <p id="form-msg" class="msg" role="status"></p>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Für weitere Fragen schreibt mir gerne bei <a href="#">Teams</a> oder per <a href="mailto:deine@email.de">E-Mail</a>.</span>
+    </div>
+  </footer>
+</body>
+</html>
