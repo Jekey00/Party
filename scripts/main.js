@@ -1,6 +1,6 @@
 /* ===== Schneefall ===== */
 (function () {
-  const canvas = document.getElementById("snow");
+  const canvas = document.getElementById("tropical");
   if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const ctx = canvas.getContext("2d");
   let w, h, flakes = [];
