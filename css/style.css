@@ -280,7 +280,7 @@ input[type="date"] { color-scheme: dark; }
 .panel.p3 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/italien.jpeg"), linear-gradient(135deg, #5a2a6b, #14507a); }
 .events .panel.p1 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/laser.webp"), linear-gradient(135deg, #6b2a4a, #2a3b7a); }
 .events .panel.p2 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/golf.jpeg"), linear-gradient(135deg, #2a6b5a, #2a3b7a); }
-.events .panel.p3 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/escape.jpeg"), linear-gradient(135deg, #6b5a2a, #4a2a6b); }
+.events .panel.p3 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/escape.webp"), linear-gradient(135deg, #6b5a2a, #4a2a6b); }
 .info {
   width: min(380px, 100%);
   padding: 1.4rem 1.6rem;
