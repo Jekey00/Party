@@ -333,7 +333,7 @@ th { background: rgba(77, 163, 255, .12); white-space: nowrap; }
 body::before {
   background:
     linear-gradient(rgba(8,12,28,.5), rgba(8,12,28,.72)),
-    url("../css/hintergrund-teamevent.jpg") center / cover no-repeat,
+    url("../css/Teamevent.jpg") center / cover no-repeat,
     radial-gradient(1100px 700px at 15% 10%, #4b2a8a 0%, transparent 60%),
     radial-gradient(1000px 600px at 90% 85%, #0e6b7a 0%, transparent 60%),
     radial-gradient(700px 500px at 60% 40%, rgba(138, 42, 107, .45) 0%, transparent 70%),
@@ -342,7 +342,7 @@ body::before {
 html[data-theme="sommerparty"] body::before {
   background:
     linear-gradient(rgba(8,12,28,.42), rgba(8,12,28,.7)),
-    url("../css/hintergrund-sommerparty.jpg") center / cover no-repeat,
+    url("../css/Sommer.jpg") center / cover no-repeat,
     radial-gradient(1100px 700px at 85% 5%, #b8631a 0%, transparent 60%),
     radial-gradient(1000px 650px at 10% 95%, #0e7a86 0%, transparent 60%),
     linear-gradient(170deg, #17223d, #0f3a4d);
@@ -350,7 +350,7 @@ html[data-theme="sommerparty"] body::before {
 html[data-theme="weihnachtsfeier"] body::before {
   background:
     linear-gradient(rgba(8,12,28,.55), rgba(8,12,28,.75)),
-    url("../css/Wallpaper.jpg") center / cover no-repeat,
+    url("../css/Winter.jpg") center / cover no-repeat,
     radial-gradient(1200px 700px at 20% 10%, #1b2b5c 0%, transparent 60%),
     radial-gradient(1000px 600px at 90% 90%, #3a1b4d 0%, transparent 60%),
     linear-gradient(160deg, var(--bg), var(--bg2));
