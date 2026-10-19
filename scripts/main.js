@@ -1,43 +1,99 @@
-/* ===== Schneefall ===== */
+/* ===== Anlass-Auswahl (Thema) + Partikel-Effekte ===== */
 (function () {
-  const canvas = document.getElementById("snow");
-  if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const ctx = canvas.getContext("2d");
-  let w, h, flakes = [];
+  const THEMES = { weihnachtsfeier: "Weihnachtsfeier", sommerparty: "Sommerparty", teamevent: "Teamevent" };
+  const DEFAULT_THEME = "teamevent";
+  const canvas = document.getElementById("fx");
+  const select = document.getElementById("event-select");
+  const ctx = canvas ? canvas.getContext("2d") : null;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const CONFETTI = ["#ff4d6d", "#ffd166", "#06d6a0", "#4da3ff", "#b388ff", "#ff9f1c"];
+  const TAU = Math.PI * 2;
+  const rnd = (a, b) => Math.random() * (b - a) + a;
+  let w = 0, h = 0, parts = [], effect = null;
 
+  const EFFECTS = {
+    // Schnee (wie bisher)
+    weihnachtsfeier: {
+      count: () => Math.min(160, Math.floor(w / 9)),
+      make: (any) => ({ x: rnd(0, w), y: any ? rnd(0, h) : -10, r: rnd(.8, 3), v: rnd(.4, 1.3), d: rnd(0, TAU), o: rnd(.4, .9) }),
+      step(p) { p.y += p.v; p.d += .012; p.x += Math.sin(p.d) * .5; return p.y > h + 10; },
+      draw(p) { ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, TAU); ctx.fillStyle = "rgba(255,255,255," + p.o + ")"; ctx.fill(); },
+    },
+    // Konfetti
+    teamevent: {
+      count: () => Math.min(130, Math.floor(w / 11)),
+      make: (any) => ({
+        x: rnd(0, w), y: any ? rnd(0, h) : rnd(-30, -8), w: rnd(6, 11), h: rnd(3, 6),
+        v: rnd(1, 2.4), d: rnd(0, TAU), s: rnd(.02, .06), rot: rnd(0, TAU), vr: rnd(-.08, .08),
+        c: CONFETTI[(Math.random() * CONFETTI.length) | 0], round: Math.random() < .25,
+      }),
+      step(p) { p.y += p.v; p.d += p.s; p.x += Math.sin(p.d) * .9; p.rot += p.vr; return p.y > h + 14; },
+      draw(p) {
+        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.scale(1, Math.cos(p.d * 2));
+        ctx.fillStyle = p.c;
+        if (p.round) { ctx.beginPath(); ctx.arc(0, 0, p.h * .8, 0, TAU); ctx.fill(); }
+        else ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      },
+    },
+    // Sommer: aufsteigende, schimmernde Seifenblasen (dazu leuchtet per CSS eine Sonne oben rechts)
+    sommerparty: {
+      count: () => Math.min(60, Math.floor(w / 22)),
+      make: (any) => ({
+        x: rnd(0, w), y: any ? rnd(0, h) : h + rnd(10, 40), r: rnd(3, 13), v: rnd(.35, 1), d: rnd(0, TAU),
+        hue: Math.random() < .5 ? rnd(35, 55) : rnd(175, 200),
+      }),
+      step(p) { p.y -= p.v; p.d += .015; p.x += Math.sin(p.d) * .6; return p.y < -20; },
+      draw(p) {
+        const g = ctx.createRadialGradient(p.x - p.r * .35, p.y - p.r * .35, p.r * .1, p.x, p.y, p.r);
+        g.addColorStop(0, "hsla(" + p.hue + ",100%,92%,.8)");
+        g.addColorStop(1, "hsla(" + p.hue + ",100%,75%,.22)");
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, TAU); ctx.fillStyle = g; ctx.fill();
+        ctx.lineWidth = 1; ctx.strokeStyle = "hsla(" + p.hue + ",100%,95%,.7)"; ctx.stroke();
+      },
+    },
+  };
+
+  function storedTheme() {
+    try { const t = localStorage.getItem("event-theme"); if (THEMES[t]) return t; } catch (e) {}
+    return DEFAULT_THEME;
+  }
+  function fill() {
+    parts = [];
+    if (ctx && effect) for (let i = 0, n = effect.count(); i < n; i++) parts.push(effect.make(true));
+  }
   function resize() {
+    if (!ctx) return;
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
-    const count = Math.min(160, Math.floor(w / 9));
-    flakes = Array.from({ length: count }, () => newFlake(true));
-  }
-  function newFlake(anywhere) {
-    return {
-      x: Math.random() * w,
-      y: anywhere ? Math.random() * h : -10,
-      r: Math.random() * 2.2 + .8,
-      v: Math.random() * .9 + .4,
-      drift: Math.random() * Math.PI * 2,
-      o: Math.random() * .5 + .4,
-    };
+    fill();
   }
   function tick() {
     ctx.clearRect(0, 0, w, h);
-    for (const f of flakes) {
-      f.y += f.v;
-      f.drift += .012;
-      f.x += Math.sin(f.drift) * .5;
-      if (f.y > h + 10) Object.assign(f, newFlake(false));
-      ctx.beginPath();
-      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255,255,255," + f.o + ")";
-      ctx.fill();
+    if (effect) {
+      for (let i = 0; i < parts.length; i++) {
+        const p = parts[i];
+        if (effect.step(p)) parts[i] = effect.make(false); else effect.draw(p);
+      }
     }
     requestAnimationFrame(tick);
   }
-  window.addEventListener("resize", resize);
+  function setTheme(name, save) {
+    if (!THEMES[name]) name = DEFAULT_THEME;
+    document.documentElement.dataset.theme = name;
+    if (select) select.value = name;
+    document.title = document.title.replace(/Weihnachtsfeier|Sommerparty|Teamevent/, THEMES[name]);
+    effect = reduced ? null : EFFECTS[name];
+    fill();
+    if (save) { try { localStorage.setItem("event-theme", name); } catch (e) {} }
+  }
+
   resize();
-  tick();
+  setTheme(storedTheme(), false);
+  window.addEventListener("resize", resize);
+  window.addEventListener("storage", (e) => { if (e.key === "event-theme") setTheme(storedTheme(), false); });
+  if (select) select.addEventListener("change", () => setTheme(select.value, true));
+  if (ctx && !reduced) tick();
 })();
 
 /* ===== Formulare → Tabelle (Google Sheets / Excel-kompatibel) ===== */

@@ -21,22 +21,17 @@ body {
   color: var(--text);
   background-color: var(--bg);
 }
-/* Hintergrundbild: assets/hintergrund.jpg ablegen. Fehlt es, greift der Verlauf. */
+/* Hintergrund je Anlass: siehe Abschnitt "Hintergründe je Anlass" am Ende der Datei */
 body::before {
   content: "";
   position: fixed; inset: 0; z-index: -1;
-  background:
-    linear-gradient(rgba(8,12,28,.55), rgba(8,12,28,.75)),
-    url("../css/Wallpaper.jpg") center / cover no-repeat,
-    radial-gradient(1200px 700px at 20% 10%, #1b2b5c 0%, transparent 60%),
-    radial-gradient(1000px 600px at 90% 90%, #3a1b4d 0%, transparent 60%),
-    linear-gradient(160deg, var(--bg), var(--bg2));
+  background: none;
 }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* Schnee: vor Hintergrund und Inhalt, hinter der Navbar */
-#snow {
+#fx {
   position: fixed; inset: 0;
   width: 100%; height: 100%;
   z-index: 50;
@@ -275,12 +270,12 @@ input[type="date"] { color-scheme: dark; }
   border-bottom: 1px solid rgba(120, 160, 255, .15);
 }
 /* Bilder in assets/ ablegen (restaurant1.jpg …). Ohne Bild greift der Verlauf. */
-.panel.p1 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/paprika.webp"), linear-gradient(135deg, #2a3b7a, #4a2a6b); }
-.panel.p2 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/Mongos.jpeg"), linear-gradient(135deg, #14507a, #2a3b7a); }
-.panel.p3 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/italien.jpeg"), linear-gradient(135deg, #5a2a6b, #14507a); }
-.events .panel.p1 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/laser.webp"), linear-gradient(135deg, #6b2a4a, #2a3b7a); }
-.events .panel.p2 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/golf.jpeg"), linear-gradient(135deg, #2a6b5a, #2a3b7a); }
-.events .panel.p3 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/escape.webp"), linear-gradient(135deg, #6b5a2a, #4a2a6b); }
+.panel.p1 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/restaurant1.jpg"), linear-gradient(135deg, #2a3b7a, #4a2a6b); }
+.panel.p2 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/restaurant2.jpg"), linear-gradient(135deg, #14507a, #2a3b7a); }
+.panel.p3 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/restaurant3.jpg"), linear-gradient(135deg, #5a2a6b, #14507a); }
+.events .panel.p1 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/event1.jpg"), linear-gradient(135deg, #6b2a4a, #2a3b7a); }
+.events .panel.p2 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/event2.jpg"), linear-gradient(135deg, #2a6b5a, #2a3b7a); }
+.events .panel.p3 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/event3.jpg"), linear-gradient(135deg, #6b5a2a, #4a2a6b); }
 .info {
   width: min(380px, 100%);
   padding: 1.4rem 1.6rem;
@@ -316,3 +311,56 @@ th { background: rgba(77, 163, 255, .12); white-space: nowrap; }
 
 /* Honeypot gegen Spam-Bots */
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+/* ===== Anlass-Auswahl in der Navbar ===== */
+.brand-select {
+  appearance: none; -webkit-appearance: none;
+  width: auto; cursor: pointer;
+  padding: .45rem 2.2rem .45rem .9rem;
+  font-weight: 700; font-size: 1.1rem; letter-spacing: .3px;
+  color: var(--text);
+  text-shadow: 0 0 12px var(--accent-glow);
+  background: rgba(77, 163, 255, .08) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%239aa6c7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat right .8rem center / 12px 8px;
+  border: 1px solid rgba(120, 160, 255, .3);
+  border-radius: 10px;
+  box-shadow: 0 0 14px rgba(77, 163, 255, .18);
+}
+.brand-select:hover { border-color: var(--accent); box-shadow: 0 0 18px var(--accent-glow); }
+
+/* ===== Hintergründe je Anlass ===== */
+/* Bilder in assets/ ablegen (hintergrund-teamevent.jpg, -sommerparty.jpg, -weihnachtsfeier.jpg).
+   Fehlt ein Bild, greift der jeweilige Farbverlauf. Standard = Teamevent. */
+body::before {
+  background:
+    linear-gradient(rgba(8,12,28,.5), rgba(8,12,28,.72)),
+    url("../assets/hintergrund-teamevent.jpg") center / cover no-repeat,
+    radial-gradient(1100px 700px at 15% 10%, #4b2a8a 0%, transparent 60%),
+    radial-gradient(1000px 600px at 90% 85%, #0e6b7a 0%, transparent 60%),
+    radial-gradient(700px 500px at 60% 40%, rgba(138, 42, 107, .45) 0%, transparent 70%),
+    linear-gradient(160deg, #0b1020, #151a3a);
+}
+html[data-theme="sommerparty"] body::before {
+  background:
+    linear-gradient(rgba(8,12,28,.42), rgba(8,12,28,.7)),
+    url("../assets/hintergrund-sommerparty.jpg") center / cover no-repeat,
+    radial-gradient(1100px 700px at 85% 5%, #b8631a 0%, transparent 60%),
+    radial-gradient(1000px 650px at 10% 95%, #0e7a86 0%, transparent 60%),
+    linear-gradient(170deg, #17223d, #0f3a4d);
+}
+html[data-theme="weihnachtsfeier"] body::before {
+  background:
+    linear-gradient(rgba(8,12,28,.55), rgba(8,12,28,.75)),
+    url("../assets/hintergrund-weihnachtsfeier.jpg") center / cover no-repeat,
+    radial-gradient(1200px 700px at 20% 10%, #1b2b5c 0%, transparent 60%),
+    radial-gradient(1000px 600px at 90% 90%, #3a1b4d 0%, transparent 60%),
+    linear-gradient(160deg, var(--bg), var(--bg2));
+}
+/* Sommer: leuchtende Sonne oben rechts */
+html[data-theme="sommerparty"] body::after {
+  content: ""; position: fixed; top: -170px; right: -170px; width: 480px; height: 480px;
+  border-radius: 50%; z-index: -1; pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 214, 102, .8) 0%, rgba(255, 170, 60, .35) 35%, transparent 70%);
+  animation: sun-pulse 6s ease-in-out infinite alternate;
+}
+@keyframes sun-pulse { from { transform: scale(.94); opacity: .8; } to { transform: scale(1.08); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { html[data-theme="sommerparty"] body::after { animation: none; } }

@@ -1,4 +1,4 @@
-# Weihnachtsfeier-Website
+# Event-Website (Teamevent · Sommerparty · Weihnachtsfeier)
 
 Statische Seite (kein Server) – läuft auf **GitHub Pages**. Die Formulare schreiben direkt in eine Tabelle.
 
@@ -26,6 +26,8 @@ die Flow-URL kommt in `ENDPOINT`. Die Felder entsprechen den Namen in `Code.gs`.
 
 ## 3. Anpassen
 
-- Bilder in `assets/`: `hintergrund.jpg`, `restaurant1-3.jpg`, `event1-3.jpg` (ohne Bild greift ein Farbverlauf)
+- Anlass-Auswahl oben links (Standard: Teamevent): Teamevent = Konfetti, Sommerparty = Sonne + Seifenblasen, Weihnachtsfeier = Schnee. Die Wahl bleibt beim Seitenwechsel gespeichert.
+- Hintergründe (Startseite + Vorschläge) in `assets/`: `hintergrund-teamevent.jpg`, `hintergrund-sommerparty.jpg`, `hintergrund-weihnachtsfeier.jpg`
+- Bilder für Restaurants/Events: `restaurant1-3.jpg`, `event1-3.jpg` (ohne Bild greift jeweils ein Farbverlauf)
 - Restaurants/Events (Name, Adresse, Links) in `verlinkung/`, passende Namen im Dropdown in `index.html`
 - E-Mail und Teams-Link in den Footern
