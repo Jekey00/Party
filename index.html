@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Weihnachtsfeier</title>
+  <script>try{var t=localStorage.getItem("event-theme");document.documentElement.dataset.theme=/^(weihnachtsfeier|sommerparty|teamevent)$/.test(t)?t:"teamevent"}catch(e){document.documentElement.dataset.theme="teamevent"}</script>
+  <title>Teamevent</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="scripts/config.js"></script>
   <script src="scripts/main.js" defer></script>
 </head>
 <body class="page-home">
-  <canvas id="snow" aria-hidden="true"></canvas>
+  <canvas id="fx" aria-hidden="true"></canvas>
 
   <header class="navbar">
-    <a class="brand" href="index.html">🎄 Weihnachtsfeier</a>
+    <select id="event-select" class="brand-select" aria-label="Anlass wählen">
+      <option value="weihnachtsfeier">🎄 Weihnachtsfeier</option>
+      <option value="sommerparty">☀️ Sommerparty</option>
+      <option value="teamevent" selected>🎉 Teamevent</option>
+    </select>
     <nav>
       <ul>
         <li><a class="nav-btn nav-home active" href="index.html"><span class="label">Home</span><i class="sparkles" aria-hidden="true"></i></a></li>
@@ -39,13 +44,11 @@
           <option>Restaurant 1</option>
           <option>Restaurant 2</option>
           <option>Restaurant 3</option>
-          <option>Vorschlag Res</option>
         </optgroup>
         <optgroup label="Veranstaltungen">
           <option>Veranstaltung 1</option>
           <option>Veranstaltung 2</option>
           <option>Veranstaltung 3</option>
-          <option>Vorschlag Ver</option>
         </optgroup>
       </select>
 
