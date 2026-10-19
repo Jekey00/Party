@@ -270,12 +270,12 @@ input[type="date"] { color-scheme: dark; }
   border-bottom: 1px solid rgba(120, 160, 255, .15);
 }
 /* Bilder in assets/ ablegen (restaurant1.jpg …). Ohne Bild greift der Verlauf. */
-.panel.p1 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/restaurant1.jpg"), linear-gradient(135deg, #2a3b7a, #4a2a6b); }
-.panel.p2 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/restaurant2.jpg"), linear-gradient(135deg, #14507a, #2a3b7a); }
-.panel.p3 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/restaurant3.jpg"), linear-gradient(135deg, #5a2a6b, #14507a); }
-.events .panel.p1 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/event1.jpg"), linear-gradient(135deg, #6b2a4a, #2a3b7a); }
-.events .panel.p2 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/event2.jpg"), linear-gradient(135deg, #2a6b5a, #2a3b7a); }
-.events .panel.p3 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../assets/event3.jpg"), linear-gradient(135deg, #6b5a2a, #4a2a6b); }
+.panel.p1 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/restaurant1.jpg"), linear-gradient(135deg, #2a3b7a, #4a2a6b); }
+.panel.p2 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/restaurant2.jpg"), linear-gradient(135deg, #14507a, #2a3b7a); }
+.panel.p3 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/restaurant3.jpg"), linear-gradient(135deg, #5a2a6b, #14507a); }
+.events .panel.p1 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/event1.jpg"), linear-gradient(135deg, #6b2a4a, #2a3b7a); }
+.events .panel.p2 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/event2.jpg"), linear-gradient(135deg, #2a6b5a, #2a3b7a); }
+.events .panel.p3 { background-image: linear-gradient(90deg, rgba(8,12,28,.4), rgba(8,12,28,.1)), url("../css/event3.jpg"), linear-gradient(135deg, #6b5a2a, #4a2a6b); }
 .info {
   width: min(380px, 100%);
   padding: 1.4rem 1.6rem;
@@ -333,7 +333,7 @@ th { background: rgba(77, 163, 255, .12); white-space: nowrap; }
 body::before {
   background:
     linear-gradient(rgba(8,12,28,.5), rgba(8,12,28,.72)),
-    url("../assets/hintergrund-teamevent.jpg") center / cover no-repeat,
+    url("../css/hintergrund-teamevent.jpg") center / cover no-repeat,
     radial-gradient(1100px 700px at 15% 10%, #4b2a8a 0%, transparent 60%),
     radial-gradient(1000px 600px at 90% 85%, #0e6b7a 0%, transparent 60%),
     radial-gradient(700px 500px at 60% 40%, rgba(138, 42, 107, .45) 0%, transparent 70%),
@@ -342,7 +342,7 @@ body::before {
 html[data-theme="sommerparty"] body::before {
   background:
     linear-gradient(rgba(8,12,28,.42), rgba(8,12,28,.7)),
-    url("../assets/hintergrund-sommerparty.jpg") center / cover no-repeat,
+    url("../css/hintergrund-sommerparty.jpg") center / cover no-repeat,
     radial-gradient(1100px 700px at 85% 5%, #b8631a 0%, transparent 60%),
     radial-gradient(1000px 650px at 10% 95%, #0e7a86 0%, transparent 60%),
     linear-gradient(170deg, #17223d, #0f3a4d);
@@ -350,7 +350,7 @@ html[data-theme="sommerparty"] body::before {
 html[data-theme="weihnachtsfeier"] body::before {
   background:
     linear-gradient(rgba(8,12,28,.55), rgba(8,12,28,.75)),
-    url("../assets/hintergrund-weihnachtsfeier.jpg") center / cover no-repeat,
+    url("../css/Wallpaper.jpg") center / cover no-repeat,
     radial-gradient(1200px 700px at 20% 10%, #1b2b5c 0%, transparent 60%),
     radial-gradient(1000px 600px at 90% 90%, #3a1b4d 0%, transparent 60%),
     linear-gradient(160deg, var(--bg), var(--bg2));
