@@ -310,9 +310,9 @@ th { background: rgba(77, 163, 255, .12); white-space: nowrap; }
   }
 
   .nav-btn {
-    min-width: 0;
-    padding: 0.5rem 0.6rem;
-  }
+  width: 100%;
+  box-sizing: border-box;
+}
 }
 @media (prefers-reduced-motion: reduce) {
   .sparkles::before, .sparkles::after, .fireworks b { animation: none !important; }
