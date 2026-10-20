@@ -368,7 +368,7 @@ html[data-theme="weihnachtsfeier"] body::before {
 html[data-theme="sommerparty"] body::after {
   content: ""; position: fixed; top: -170px; right: -170px; width: 480px; height: 480px;
   border-radius: 50%; z-index: -1; pointer-events: none;
-  background: radial-gradient(circle, rgba(255, 214, 102, .8) 0%, rgba(255, 170, 60, .35) 35%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 214, 102, .8) 0%, rgba(255, 170, 60, .35) 35%, transparent 60%);
   animation: sun-pulse 6s ease-in-out infinite alternate;
 }
 @keyframes sun-pulse { from { transform: scale(.94); opacity: .8; } to { transform: scale(1.08); opacity: 1; } }
