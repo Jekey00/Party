@@ -302,8 +302,17 @@ th { background: rgba(77, 163, 255, .12); white-space: nowrap; }
 .hidden { display: none !important; }
 
 @media (max-width: 760px) {
-  .navbar { flex-direction: column; padding: .6rem .8rem; }
-  .nav-btn { min-width: 0; padding: 0 .6rem; }
+  .navbar {
+    display: flex; /* falls nicht bereits gesetzt */
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .nav-btn {
+    min-width: 0;
+    padding: 0.5rem 0.6rem;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .sparkles::before, .sparkles::after, .fireworks b { animation: none !important; }
