@@ -280,7 +280,7 @@ input[type="date"] { color-scheme: dark; }
   width: min(380px, 100%);
   padding: 1.4rem 1.6rem;
   background: rgba(12, 18, 38, .78);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  /*backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);*/
   border: 1px solid rgba(120, 160, 255, .25);
   border-radius: var(--radius);
   box-shadow: 0 12px 34px rgba(0, 0, 0, .5);
