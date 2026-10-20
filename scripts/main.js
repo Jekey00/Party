@@ -12,7 +12,7 @@
   let w = 0, h = 0, parts = [], effect = null;
 
   const EFFECTS = {
-    // Schnee (wie bisher)
+    // Schnee 
     weihnachtsfeier: {
       count: () => Math.min(160, Math.floor(w / 9)),
       make: (any) => ({ x: rnd(0, w), y: any ? rnd(0, h) : -10, r: rnd(.8, 3), v: rnd(.4, 1.3), d: rnd(0, TAU), o: rnd(.4, .9) }),
